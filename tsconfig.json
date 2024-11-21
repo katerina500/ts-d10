@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "target": "ES6", 
+      "rootDir": "scripts",
+      "outDir": "build", //куда компилировать
+      "allowJs": true,  //позволяет компилировать JS-файлы 
+      "checkJs": true,  //проверяет типы в JS-файлах и сообщает об ошибках
+      "sourceMap": true,  //создать source map файлы для готовых JS-файлов (хорошо подходит для дебаггинга)
+      "removeComments": true, //игнорировать комментарии
+      "module": "CommonJS",
+      "noEmitOnError": true, //запрет генерации JS-файлов при ошибке типов в исходнике
+      "noImplicitAny": true,
+      "strict": true
+  },
+
+  "include": ["scripts"] //компилировать только файлы из папки scripts
+}
