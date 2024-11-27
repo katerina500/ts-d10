@@ -81,18 +81,22 @@ class UserModel extends Resource<DataType> {
     return undefined;
   }
 
-   public delete<K extends keyof DataType>(
-    key: K, 
-    val: DataType[K]) 
-    : DataType | undefined {
-    const items = this.data.find(item => item[key] === val);
-    if (items) {
-      this.data.filter(item => item ! == item)
-      Object.assign(this.data);
-      return items; 
+  public delete<K extends keyof DataType>(
+    key: K,
+    val: DataType[K]
+  ): DataType | undefined {
+    // Найти элемент по ключу и значению
+    const item = this.data.find(item => item[key] === val);
+  
+    // Если элемент найден, удаляем его из массива
+    if (item) {
+      this.data = this.data.filter(item => item[key] !== val);
+      return item; // Возвращаем удалённый элемент
     }
+  
+    // Если ничего не найдено, возвращаем undefined
     return undefined;
-   }
+  }
 
 
       
