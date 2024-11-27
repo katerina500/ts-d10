@@ -61,11 +61,10 @@ class UserModel extends Resource {
         return undefined;
     }
     delete(key, val) {
-        const items = this.data.find(item => item[key] === val);
-        if (items) {
-            this.data.filter(item => item == item);
-            Object.assign(this.data);
-            return items;
+        const item = this.data.find(item => item[key] === val);
+        if (item) {
+            this.data = this.data.filter(item => item[key] !== val);
+            return item;
         }
         return undefined;
     }
